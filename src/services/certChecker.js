@@ -40,9 +40,8 @@ export function certChecker(hostname,port) {
         const now = new Date() ;
 
         const validFrom = new Date(raw.valid_from);
-            const validTo = new Date(raw.valid_to);
-
-            const cert = {
+        const validTo = new Date(raw.valid_to);
+        const cert = {
                 subject: raw.subject,
                 domain: raw.subject?.CN || "N/A",
                 validFrom,

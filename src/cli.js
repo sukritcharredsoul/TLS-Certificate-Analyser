@@ -23,8 +23,8 @@ program
             const result = await certChecker(hostname,parseInt(options.port)) ;
             console.log("Domain : "+ hostname);
             console.log("Subject :" + JSON.stringify(result.cert.subject)) ;
-            console.log("ValidTill : " + result.cert.validTill) ;
-            console.log("Validfrom : " + result.cert.validfrom ) ;
+            console.log("ValidTill : " + result.cert.validTo) ;
+            console.log("Validfrom : " + result.cert.validFrom ) ;
             console.log("FingerPrint : " + result.cert.fingerprint ) ;
             console.log('TLS Version : ' + result.protocol)
             console.log('Cipher      : ' + result.cipher.name)
