@@ -17,6 +17,9 @@ program
     .option('-p,--port <port>',"Port Number",'443')
     .action(async (hostname,options) => {
         try {
+            if(options.port < 1 || options.port > 65535){
+                throw new Error("Invalid Port Range") ;
+            }
             const result = await certChecker(hostname,parseInt(options.port)) ;
             console.log("Domain : "+ hostname);
             console.log("Subject :" + JSON.stringify(result.cert.subject)) ;
