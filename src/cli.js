@@ -20,14 +20,14 @@ program
             const result = await certChecker(hostname,parseInt(options.port)) ;
             console.log("Domain : "+ hostname);
             console.log("Subject :" + JSON.stringify(result.cert.subject)) ;
-            console.log("validTill : " + result.cert.validTill) ;
-            console.log("validfrom : " + result.cert.validfrom ) ;
-            console.log("fingerPrint : " + result.cert.fingerprint ) ;
+            console.log("ValidTill : " + result.cert.validTill) ;
+            console.log("Validfrom : " + result.cert.validfrom ) ;
+            console.log("FingerPrint : " + result.cert.fingerprint ) ;
             console.log('TLS Version : ' + result.protocol)
             console.log('Cipher      : ' + result.cipher.name)
 
 
-        if (result.cert.isExpired) {
+        if (result.cert.isExpired || new Date(result.cert.validTill) < new Date()) {
             console.log("Certificate is EXPIRED");
         } else {
             console.log("Certificate is valid");
